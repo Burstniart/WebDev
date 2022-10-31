@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+/*top nav bar goes in th the top*/
+.nav {
+    background-color: #331a00;
+    height: auto;
+    grid-area: nav;
+}
+
+.title {
+    color:#FBF2C0;
+    font-family: "Open sans";
+}
+/*content aligns at the center*/
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.content {
+    padding: 30px;
+}
+
+.items-section {
+    grid-area: items;
+}
+
+.item {
+    display: flex;
+}
+
+.section-title {
+    display: inline-block;
+}
+
+.name-section {
+    grid-area: name;
+}
+
+.payment-section {
+    grid-area: payment;
+}
+
+.checkout-section {
+    grid-area: checkout;
+}
+
+.page {
+    display:grid;
+    grid-template-areas:
+    "nav nav"
+    "items name"
+    "items payment"
+    "checkout checkout";
+}
+
+
+
