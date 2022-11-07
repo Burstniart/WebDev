@@ -19,3 +19,16 @@ for (let i = 0; i < timesToRepeat; i++) {
 
 console.log(answer)
 
+const redSquare = document.querySelector(".red-square");
+redSquare.style.backgroundColor = "limegreen";
+
+const elemToChange = document.querySelectorAll(".js-target");
+for (let i = 0; i < elemToChange.length; i++) {
+    const currElemt = elemToChange[i];
+    currElemt.innerText = "Modified byatch!";
+}
+
+const button = document.querySelector(".event-button")
+button.addEventListener("click", function () {
+    alert("Surprise MotherFucker")
+})
