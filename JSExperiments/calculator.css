@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box
+}
+
+.container {
+    display: grid;
+    width: 400px;
+    height: 500px;
+    grid-template-areas:
+    "screen screen screen screen"
+    " erase erase delete divide"
+    "num7 num8 num9 times"
+    "num4 num5 num6 minus"
+    "num1 num2 num3 plus"
+    "num0 num0 num0 equals"
+}
+
+.screen {
+    background-color: black;
+    display: flex;
+    color: white;
+    text-align: right;
+    align-items: center;
+    justify-content: right;
+    grid-area: screen; 
+    font-size: 24px;
+    padding: 15px;
+}
+
+.numPad, .cleanButton {
+    background-color: lightgray;
+    color: black;
+}
+
+.operation {
+    background-color: orange;
+    color: white;
+}
+.numPad, .operation, .cleanButton {
+    font-size: 36px;
+    margin: 0px;
+    border: solid black 1px;
+}
+.erase {
+    grid-area: erase;}
+.delete {
+    grid-area: delete;
+}
+.divide {
+    grid-area: divide}
+.times {
+    grid-area: times
+}
+.minus {
+    grid-area: minus}
+.plus {
+    grid-area: plus}
+.equals {
+    grid-area: equals}
+.num0  {
+    grid-area: num0;
+}
+.num1  {
+    grid-area: num1;
+}
+.num2  {
+    grid-area: num2;
+}
+.num3  {
+    grid-area: num3;
+}
+.num4  {
+    grid-area: num4;
+}
+.num5  {
+    grid-area: num5;
+}
+.num6  {
+    grid-area: num6;
+}
+.num7  {
+    grid-area: num7;
+}
+.num8  {
+    grid-area: num8;
+}
+.num9  {
+    grid-area: num9;
+}
