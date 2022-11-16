@@ -1,35 +1,76 @@
 
 console.log("in here")
 
-let numA, numB;
+let runningTotal = 0;
+
+let previousOperator = null;
+
 
 const screen = document.querySelector(".screen");
 screen.innerText = "0";
-
+/*
 document.querySelector(".erase").addEventListener("click", function() {
     screen.innerText=" ";
 })
+*/
+function handleMath(value) {
+    if (screen.innerText == "0") {
+        return;
+    }
+
+    const intBuffer = parseInt(screen.innerText);
+    if(runningTotal == 0) {
+        runningTotal = intBuffer;
+    } else {
+        flushOperation(intBuffer);    
+    }
+    previousOperator = value;
+
+    screen.innerText = "0";
+}
+
+function flushOperation(intBuffer) {
+    if (previousOperator == "+") {
+        runningTotal += intBuffer;
+    } else if (previousOperator == "-") {
+        runningTotal -= intBuffer;
+    } else if (previousOperator == "x") {
+        runningTotal *= intBuffer;
+    } else if (previousOperator == "/") {
+        runningTotal /= intBuffer;
+    }
+    console.log(runningTotal)
+}
 
 document.querySelector(".container").addEventListener("click", function(event){
     let dude = event.target.innerText;
     let target = parseInt(dude);
-    if (event.target.innerText == "C" || event.target.innerText == "<-") {
-        screen.inenrText = "";
-        numA = 0;
-        numB = 0;
+    if ( dude == "C" || event.target.innerText == "<-") {
+      screen.innerText = "0"; 
     } else if ( !isNaN(target) ) {
-        if ( isNaN( parseInt( screen.innerText ))) {
-            screen.innerText = "";
-        }
-        screen.innerText += event.target.innerText;
-        console.log(screen.innerText);
-    } else if ( isNaN( target ) ) {
-        if (numA != 0) {
-        numA = screen.innerText;
-        screen.innerText = dude;
+        if (screen.innerText == "0") {
+            screen.innerText = dude;
         } else {
-            numB = screen.innerText;
-            /*implement aritmethic operations*/
+        screen.innerText += event.target.innerText;
+        }
+    } else if ( isNaN( target ) ) {
+        switch (dude) {
+            case "+":
+            case "-":
+            case "x":
+            case "/":
+                handleMath(dude)
+                break;
+            case "=":
+                if (previousOperator === null) {
+                    // need two numbers to do math
+                    return;
+                  }
+                  flushOperation(parseInt(screen.innerText));
+                  previousOperator = null;
+                  screen.innerText = "" + runningTotal;
+                  runningTotal = 0;
+                  break;
         }
     }
 })
