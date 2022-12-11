@@ -3,3 +3,5 @@
 1. Code is just text for humans to understand and machines to execute
 
 1. Load JS at the end, CSS at the beginning, looks good right from the get go and gives time for the page to load the scripts, unless you actually need to load something before the page loads, in that case I think you get the point
+
+Look at all this beautiful notes
